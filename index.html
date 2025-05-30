@@ -2,79 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Happy Birthday Soumyadip!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KayGM Associates | Chartered Accountants</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #ffe6f0;
-      text-align: center;
-      padding: 20px;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      background-image: url('https://images.unsplash.com/photo-1612832020833-5002e206e0c3?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #333;
     }
 
-    h2 {
-      color: #ff3366;
-    }
-
-    video, canvas {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #ff66a3;
+    #chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0073e6;
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
       cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
-    #wish {
+    #chat-window {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      height: 450px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
       display: none;
-      font-size: 24px;
-      font-weight: bold;
-      margin-top: 20px;
-      color: #cc0066;
+      flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    #chat-header {
+      background: #004080;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    #chat-body {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    #chat-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    #chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-bottom-left-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+    }
+
+    #chat-input button {
+      padding: 10px;
+      border: none;
+      background: #0073e6;
+      color: white;
+      border-bottom-right-radius: 10px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+    }
+
+    #video-call-button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+    }
+
+    #video-call-button:hover {
+      background-color: #218838;
+    }
+
+    #video-call-container {
+      width: 100%;
+      height: 200px;
+      display: none;
     }
   </style>
 </head>
 <body>
 
-  <h2>Hey Soumyadip, Smile for the Camera! 📸</h2>
-  <video id="video" autoplay playsinline></video>
-  <br />
-  <button onclick="takePhoto()">Capture Photo</button>
-  <canvas id="canvas" style="display:none;"></canvas>
+  <button id="chat-button" title="Chat">💬</button>
 
-  <p id="wish">🎉 Happy Birthday, Soumyadip Mallik! Wishing you joy, success & a wonderful year ahead! 🎂🎈</p>
+  <div id="chat-window">
+    <div id="chat-header">Live Chat</div>
+    <div id="chat-body">
+      <p><strong>Support:</strong> Welcome! How can we help you?</p>
+    </div>
+    <div id="chat-input">
+      <input type="text" id="chat-message" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+    <button id="video-call-button" onclick="startVideoCall()">📹 Start Video Call</button>
+    <div id="video-call-container">
+      <iframe
+        src="https://daily.co/hello"
+        allow="camera; microphone; fullscreen; display-capture"
+        style="width: 100%; height: 100%; border: none; border-radius: 0 0 10px 10px;">
+      </iframe>
+    </div>
+  </div>
 
   <script>
-    const video = document.getElementById('video');
-    const canvas = document.getElementById('canvas');
-    const wish = document.getElementById('wish');
+    const chatButton = document.getElementById('chat-button');
+    const chatWindow = document.getElementById('chat-window');
+    const chatBody = document.getElementById('chat-body');
+    const videoContainer = document.getElementById('video-call-container');
 
-    // Ask for camera access
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(stream => {
-        video.srcObject = stream;
-      })
-      .catch(err => {
-        alert("Please allow camera access to continue.");
-      });
+    chatButton.onclick = () => {
+      chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+      chatWindow.style.flexDirection = 'column';
+    };
 
-    // Take photo and show message
-    function takePhoto() {
-      const context = canvas.getContext('2d');
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      context.drawImage(video, 0, 0);
-      canvas.style.display = 'block';
-      video.style.display = 'none';
-      wish.style.display = 'block';
+    function sendMessage() {
+      const input = document.getElementById('chat-message');
+      const message = input.value.trim();
+      if (message) {
+        const msgElem = document.createElement('p');
+        msgElem.innerHTML = `<strong>You:</strong> ${message}`;
+        chatBody.appendChild(msgElem);
+        input.value = '';
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+    }
+
+    function startVideoCall() {
+      videoContainer.style.display = 'block';
     }
   </script>
 
