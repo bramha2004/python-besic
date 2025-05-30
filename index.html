@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday Soumyadip!</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe6f0;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #ff3366;
+    }
+
+    video, canvas {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #wish {
+      display: none;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #cc0066;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Hey Soumyadip, Smile for the Camera! 📸</h2>
+  <video id="video" autoplay playsinline></video>
+  <br />
+  <button onclick="takePhoto()">Capture Photo</button>
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <p id="wish">🎉 Happy Birthday, Soumyadip Mallik! Wishing you joy, success & a wonderful year ahead! 🎂🎈</p>
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const wish = document.getElementById('wish');
+
+    // Ask for camera access
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        video.srcObject = stream;
+      })
+      .catch(err => {
+        alert("Please allow camera access to continue.");
+      });
+
+    // Take photo and show message
+    function takePhoto() {
+      const context = canvas.getContext('2d');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      context.drawImage(video, 0, 0);
+      canvas.style.display = 'block';
+      video.style.display = 'none';
+      wish.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
