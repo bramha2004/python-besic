@@ -3,163 +3,259 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="KayGM Associates - Best CA Firm in India for Tax, GST, Audit & Advisory.">
+  <meta name="keywords" content="CA, Chartered Accountant, GST, Audit, Tax Filing">
+  <meta name="author" content="KayGM Associates">
   <title>KayGM Associates | Chartered Accountants</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <script async src="https://embed.tawk.to/660f89f51ec1082f04dc0e4c/1hqhd2b2a" charset="UTF-8" crossorigin="*"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      background-image: url('https://images.unsplash.com/photo-1612832020833-5002e206e0c3?auto=format&fit=crop&w=1470&q=80');
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=1470&q=80');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-      color: #333;
+      color: #222;
+      min-height: 100vh;
+      transition: background 1s ease-in-out;
     }
-
-    #chat-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #0073e6;
+    header { background: #004080; padding: 20px; text-align: center; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    header h1 { font-size: 2.5rem; }
+    header p { font-size: 1rem; }
+    section { padding: 60px 20px; text-align: center; }
+    .btn {
+      padding: 12px 24px;
+      font-size: 1rem;
       color: white;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 28px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    #chat-window {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: 300px;
-      height: 450px;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      display: none;
-      flex-direction: column;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    }
-
-    #chat-header {
-      background: #004080;
-      color: white;
-      padding: 10px;
-      text-align: center;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-
-    #chat-body {
-      flex: 1;
-      padding: 10px;
-      overflow-y: auto;
-    }
-
-    #chat-input {
-      display: flex;
-      border-top: 1px solid #ccc;
-    }
-
-    #chat-input input {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-bottom-left-radius: 10px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-    }
-
-    #chat-input button {
-      padding: 10px;
-      border: none;
       background: #0073e6;
-      color: white;
-      border-bottom-right-radius: 10px;
-      cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-    }
-
-    #video-call-button {
-      background-color: #28a745;
-      color: white;
       border: none;
-      padding: 10px;
-      width: 100%;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 14px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
+      transition: background 0.3s ease;
     }
+    .btn:hover { background: #005bb5; }
+    .services, .team-members {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;
+    }
+    .card, .member {
+      background: white; padding: 30px; border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1); width: 280px; transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-8px); }
+    .slide-track {
+      display: flex; animation: scroll 15s linear infinite; width: calc(250px * 10);
+    }
+    .slide {
+      height: 100px; width: 250px; margin: 0 10px; background: #fff;
+      border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: bold;
+    }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .whatsapp-button {
+      position: fixed; bottom: 20px; left: 20px; background-color: #25D366;
+      color: white; border: none; border-radius: 50%; width: 60px; height: 60px;
+      font-size: 28px; text-align: center; line-height: 60px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none;
+    }
+    footer { background: #003366; color: white; text-align: center; padding: 20px; margin-top: 60px; }
+      
+  100% { transform: translateX(-50%); }
+}
+  100% { transform: translateX(-50%); }
+}
+  100% { transform: translateX(-100%); }
+}
+      33% { transform: translateY(-33.33%); }
+      66% { transform: translateY(-66.66%); }
+    }
+    #work-areas {
+  display: flex;
+  gap: 30px;
+  animation: autoSlide 30s linear infinite;
+  width: fit-content;
+  white-space: nowrap;
+}
 
-    #video-call-button:hover {
-      background-color: #218838;
     }
-
-    #video-call-container {
-      width: 100%;
-      height: 200px;
-      display: none;
-    }
-  </style>
+</style>
 </head>
-<body>
+<body id="top">
+  <header>
+    <h1>KayGM Associates</h1>
+    <p>Chartered Accountants | Tax | Audit | Business Consulting</p>
+  </header>
 
-  <button id="chat-button" title="Chat">💬</button>
+  <section>
+    <h2>Welcome to KayGM</h2>
+    <p>Your trusted financial and tax advisor. We ensure compliance, growth, and peace of mind for every client.</p>
+  </section>
 
-  <div id="chat-window">
-    <div id="chat-header">Live Chat</div>
-    <div id="chat-body">
-      <p><strong>Support:</strong> Welcome! How can we help you?</p>
+  <section style="text-align: center; padding: 20px;">
+  <a class="btn" href="#services">Get Started</a>
+</section>
+
+
+
+  $1
+
+<section id="work-details">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card"><h3><a href="#details-GST">GST</a></h3></div>
+    <div class="card"><h3><a href="#details-TDS">TDS</a></h3></div>
+    <div class="card"><h3><a href="#details-TCS">TCS</a></h3></div>
+    <div class="card"><h3><a href="#details-ROC Filing">ROC Filing</a></h3></div>
+    <div class="card"><h3><a href="#details-Income Tax">Income Tax</a></h3></div>
+  </div>
+</section>
+
+<section id="client-data" style="display:none;">
+    <h2>Our Clients</h2>
+    <table style="margin: 0 auto; width: 90%; max-width: 700px; border-collapse: collapse; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      <thead style="background-color: #004080; color: white;">
+        <tr>
+          <th style="padding: 12px; border: 1px solid #ccc;">Client Name</th>
+          <th style="padding: 12px; border: 1px solid #ccc;">Service Taken</th>
+          <th style="padding: 12px; border: 1px solid #ccc;">Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 12px; border: 1px solid #ccc;">Ramesh Kumar</td><td style="padding: 12px; border: 1px solid #ccc;">GST Filing</td><td style="padding: 12px; border: 1px solid #ccc;">ramesh@example.com</td></tr>
+        <tr><td style="padding: 12px; border: 1px solid #ccc;">Sita Enterprises</td><td style="padding: 12px; border: 1px solid #ccc;">Audit</td><td style="padding: 12px; border: 1px solid #ccc;">sita@example.com</td></tr>
+        <tr><td style="padding: 12px; border: 1px solid #ccc;">Manoj Singh</td><td style="padding: 12px; border: 1px solid #ccc;">Income Tax</td><td style="padding: 12px; border: 1px solid #ccc;">manoj@example.com</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section style="text-align:center; padding: 20px;">
+    <a class="btn" href="#appointment">Book Appointment</a>
+  </section>
+
+  <section id="customer-thoughts">
+  <h2>What Our Customers Say</h2>
+  <div class="services">
+    <div class="card"><p>"KayGM made our GST filing seamless and stress-free." – Ramesh Verma</p></div>
+    <div class="card"><p>"Professional, knowledgeable, and prompt service every time." – Neha Jain</p></div>
+    <div class="card"><p>"From company registration to audits – they handle it all!" – Vikram Singh</p></div>
+  </div>
+</section>
+
+
+
+$1
+    <h2>Book an Appointment</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST" style="max-width:600px;margin:0 auto;text-align:left;background:#fff;padding:20px;border-radius:8px;box-shadow:0 0 15px rgba(0,0,0,0.1);">
+      <label>Name:</label>
+      <input type="text" name="name" required style="width:100%;padding:10px;margin-bottom:10px;">
+      <label>Email:</label>
+      <input type="email" name="email" required style="width:100%;padding:10px;margin-bottom:10px;">
+      <label>Mobile Number:</label>
+      <input type="tel" name="mobile" required pattern="[0-9]{10}" style="width:100%;padding:10px;margin-bottom:10px;">
+      <label>Choose Professional:</label>
+      <select name="professional" required style="width:100%;padding:10px;margin-bottom:10px;">
+        <option value="">-- Select --</option>
+        <option value="Animesh Yadav">CA Animesh Yadav</option>
+        <option value="Krishna Gopal Bansal">CA Krishna Gopal Bansal</option>
+        <option value="Sourav Mod">CA Sourav Mod</option>
+        <option value="Ravi Kant Goel">CA Ravi Kant Goel</option>
+      </select>
+      <label>Message:</label>
+      <textarea name="message" required style="width:100%;padding:10px;margin-bottom:10px;"></textarea>
+      <button type="submit" class="btn">Submit Appointment</button>
+    </form>
+    <div style="text-align:center; margin-top: 20px;">
+  <a class="btn" href="#top">⬅ Back to Main Page</a>
+</div>
+
+<section id="services">
+  <h2>Our Professionals</h2>
+  <div class="team-members">
+    <div class="member">
+      <strong>CA Animesh Yadav</strong><br>
+      <span>GST & Tax Specialist</span>
     </div>
-    <div id="chat-input">
-      <input type="text" id="chat-message" placeholder="Type your message...">
-      <button onclick="sendMessage()">Send</button>
+    <div class="member">
+      <strong>CA Krishna Gopal Bansal</strong><br>
+      <span>Audit & Corporate Compliance</span>
     </div>
-    <button id="video-call-button" onclick="startVideoCall()">📹 Start Video Call</button>
-    <div id="video-call-container">
-      <iframe
-        src="https://daily.co/hello"
-        allow="camera; microphone; fullscreen; display-capture"
-        style="width: 100%; height: 100%; border: none; border-radius: 0 0 10px 10px;">
-      </iframe>
+    <div class="member">
+      <strong>CA Sourav Mod</strong><br>
+      <span>Business Structuring & Startups</span>
+    </div>
+    <div class="member">
+      <strong>CA Ravi Kant Goel</strong><br>
+      <span>Income Tax & Financial Planning</span>
     </div>
   </div>
+</section>
+  </section>
+
+  <a class="whatsapp-button" href="https://wa.me/919999999999" target="_blank" title="Chat with us on WhatsApp">💬</a>
+
+  <footer>
+    <p>&copy; 2025 KayGM Associates. All rights reserved.</p>
+  <section id="details-GST">
+  <h2>GST</h2>
+  <p>Comprehensive GST services including registration, return filing, audit support, and compliance advisory.</p>
+</section>
+
+<section id="details-Audit">
+  <h2>Audit</h2>
+  <p>We perform statutory, internal, and tax audits ensuring financial compliance and transparency in accordance with Indian tax laws.</p>
+</section>
+<section id="details-Digital Signature">
+  <h2>Digital Signature</h2>
+  <p>We help in issuing and renewing Digital Signature Certificates (DSC) required for online filings and business transactions.</p>
+</section>
+<section id="details-Compliance">
+  <h2>Compliance</h2>
+  <p>Ensure your business adheres to regulatory requirements including tax, labor, and financial disclosures.</p>
+</section>
+<section id="details-TDS">
+  <h2>TDS</h2>
+  <p>We provide TDS deduction, return filing, and reconciliation to ensure error-free compliance.</p>
+</section>
+<section id="details-TCS">
+  <h2>TCS</h2>
+  <p>Manage your Tax Collected at Source effectively with timely advice and filing.</p>
+</section>
+<section id="details-Income Tax">
+  <h2>Income Tax</h2>
+  <p>We offer personalized income tax filing for individuals and businesses including tax planning and assessments.</p>
+</section>
+<section id="details-Business Setup">
+  <h2>Business Setup</h2>
+  <p>From choosing a business structure to registrations and compliance – we’ll guide you every step of the way.</p>
+</section>
+<section id="details-ROC Filing">
+  <h2>ROC Filing</h2>
+  <p>Complete ROC filing and annual compliance services with MCA including Director KYC and AOC/MGT submissions.</p>
+</section>
+<footer>
 
   <script>
-    const chatButton = document.getElementById('chat-button');
-    const chatWindow = document.getElementById('chat-window');
-    const chatBody = document.getElementById('chat-body');
-    const videoContainer = document.getElementById('video-call-container');
-
-    chatButton.onclick = () => {
-      chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
-      chatWindow.style.flexDirection = 'column';
-    };
-
-    function sendMessage() {
-      const input = document.getElementById('chat-message');
-      const message = input.value.trim();
-      if (message) {
-        const msgElem = document.createElement('p');
-        msgElem.innerHTML = `<strong>You:</strong> ${message}`;
-        chatBody.appendChild(msgElem);
-        input.value = '';
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }
+    function toggleClientData(e) {
+      e.preventDefault();
+      const section = document.getElementById('client-data');
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) servicesSection.scrollIntoView({ behavior: 'smooth' });
     }
 
-    function startVideoCall() {
-      videoContainer.style.display = 'block';
-    }
+    const images = [
+      'https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=1470&q=80',
+      'https://images.unsplash.com/photo-1588776814546-ec7a89f9bb87?auto=format&fit=crop&w=1470&q=80',
+      'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1470&q=80',
+      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1470&q=80'
+    ];
+    let bgIndex = 0;
+    setInterval(() => {
+      bgIndex = (bgIndex + 1) % images.length;
+      document.body.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('${images[bgIndex]}')`;
+    }, 2000);
   </script>
-
 </body>
 </html>
+
